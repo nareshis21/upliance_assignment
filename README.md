@@ -87,15 +87,38 @@ The entire game logic resides in `prompts.py` as a system instruction. The Pytho
 ```
 upliance_assignment/
 ├── google/
-│   ├── ai_judge.py          # Main game (Gemini)
-│   └── test_scenarios.py    # 12 test cases (Gemini)
+│   ├── ai_judge.py          # Main game (Gemini direct API)
+│   └── test_scenarios.py    # 15 test cases (Gemini)
 ├── groq/
 │   ├── ai_judge_groq.py     # Main game (Groq/Llama)
-│   └── test_scenarios_groq.py # 12 test cases (Groq)
+│   └── test_scenarios_groq.py # 15 test cases (Groq)
+├── adk_agent/
+│   ├── agent.py             # ADK-based AI Judge (uses ADK primitives)
+│   ├── .env.example         # API key template
+│   └── __init__.py
 ├── prompts.py               # System instruction (the "brain")
 ├── requirements.txt         # Dependencies
 ├── .env                     # API keys (create this)
 └── README.md               # This file
+```
+
+## 🤖 ADK Implementation
+
+An additional implementation using **Google Agent Development Kit (ADK)** primitives is provided in `adk_agent/`. This demonstrates:
+
+- **Agent-oriented architecture** using `google.adk.agents.llm_agent.Agent`
+- **Tool-based design** with separate functions for:
+  - `get_bot_move()` - Generates random bot move
+  - `get_game_state()` - Returns current round, scores, bomb status
+  - `update_game_state()` - Updates state after judgment
+- **Structured agent definition** with model, name, description, instruction, and tools
+
+**Run with ADK CLI:**
+```bash
+pip install google-adk
+adk run adk_agent
+# Or use web interface:
+adk web --port 8000
 ```
 
 ## 🧪 Test Scenarios
@@ -160,9 +183,10 @@ Bot moves are randomly selected before LLM evaluation. This ensures:
 
 ✅ **Prompt Quality**: Clear instructions, explicit roles, structured output  
 ✅ **Instruction Design**: Rules in prompt, not hardcoded logic  
-✅ **Edge-Case Handling**: 12+ test scenarios covering ambiguity and violations  
+✅ **Edge-Case Handling**: 15 test scenarios covering ambiguity, pop culture, and violations  
 ✅ **Explainability**: JSON separates internal logic from user messages  
 ✅ **Minimal Code**: ~140 lines of glue code per implementation, all logic in prompt  
+✅ **ADK Primitives**: `adk_agent/` uses Agent, tools, and structured definitions  
 
 ## 🔧 API Comparison
 

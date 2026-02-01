@@ -1,7 +1,8 @@
-# Environment variables (API keys)
+# Environment variables (API keys) - CRITICAL
 .env
 .env.local
 .env.*.local
+adk_agent/.env
 
 # Python
 __pycache__/
@@ -24,12 +25,17 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+*.manifest
+*.spec
 
 # Virtual environments
 venv/
 ENV/
 env/
 .venv/
+Scripts/
+Include/
+pyvenv.cfg
 
 # IDE
 .idea/
@@ -37,15 +43,52 @@ env/
 *.swp
 *.swo
 *~
+*.sublime-project
+*.sublime-workspace
 
 # OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+Desktop.ini
 
 # Logs
 *.log
+logs/
+pip-log.txt
+pip-delete-this-directory.txt
 
 # Testing
 .pytest_cache/
 .coverage
 htmlcov/
+.tox/
+.nox/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# ADK / Agent logs
+agents_log/
+.adk/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Misc
+*.bak
+*.tmp
+*.temp
+.cache/
+*.pid
