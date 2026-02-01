@@ -61,8 +61,17 @@ The entire game logic resides in the `SYSTEM_INSTRUCTION` prompt (not Python cod
 
 | Implementation | Purpose | Key Feature |
 |----------------|---------|-------------|
-| **Groq** (`groq/`) | Direct API | JSON output, better free tier (30 RPM) |
-| **ADK** (`adk_agent/`) | Agent framework | Demonstrates ADK primitives, natural language responses |
+| **Groq** (`groq/`) | Testing & Development | **30 RPM** free tier - enables comprehensive test suite |
+| **ADK** (`adk_agent/`) | Production & ADK Demo | Demonstrates ADK primitives, conversational interface |
+
+**Why Groq for Testing?**
+
+Groq's significantly higher rate limits (30 RPM vs Gemini's 10 RPM) make it ideal for:
+- Running the full 15-scenario test suite without rate-limit errors
+- Rapid iteration during development
+- Demonstrating the AI Judge's robustness across edge cases
+
+The ADK implementation uses Gemini (as required by ADK) and focuses on demonstrating Google's agent framework primitives.
 
 ### Separation of Concerns
 - **Intent Understanding**: LLM parses user input to identify intended move
