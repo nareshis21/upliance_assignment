@@ -1,13 +1,9 @@
 import os
-import sys
 import json
 import time
 import random
 from groq import Groq
 from dotenv import load_dotenv
-
-# Add parent directory to path to import prompts
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from prompts import SYSTEM_INSTRUCTION
 
 load_dotenv()
