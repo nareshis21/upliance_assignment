@@ -22,7 +22,10 @@ A prompt-driven AI Judge implementation that evaluates moves, enforces rules, an
    # CLI version with Groq (recommended - better rate limits)
    python groq/ai_judge_groq.py
    
-   # ADK Web interface (requires google-adk)
+   # ADK CLI (natural conversation)
+   adk run adk_agent
+   
+   # ADK Web interface (browser-based)
    adk web --port 8000
    # Then open http://localhost:8000
    ```
