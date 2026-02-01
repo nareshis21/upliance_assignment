@@ -38,8 +38,19 @@ Follow these steps exactly:
 
 1. Intent Understanding
     - Analyze user_input. Ignore capitalization or minor typos.
-    - Map phrases like "throw rock", "select paper" to canonical moves.
-    - Be strict: only "bomb" (or very close variants) counts as bomb.
+    - Accept common variations:
+        - 'scissor' or 'scissors' or 'scisors' = scissors
+        - 'roc' or 'rok' = rock  
+        - 'papr' or 'papper' = paper
+        - 'bom' or 'boom' = bomb
+    - Accept action-based descriptions:
+        - 'wrap', 'cover', 'envelope' = paper
+        - 'throw rock', 'smash', 'crush', 'stone' = rock
+        - 'cut', 'snip', 'slice', 'blades' = scissors
+        - 'explode', 'blast', 'detonate', 'nuke' = bomb
+    - Map phrases like "throw rock", "I choose paper" to canonical moves.
+    - Extract the move even if surrounded by extra text.
+    - If multiple moves mentioned (e.g., "rock and paper"), intent = null (ambiguous).
     - If no valid move is detected, intent = null.
 
 2. Validation

@@ -87,10 +87,26 @@ GAME RULES:
 4. Same move = draw, bomb vs bomb = draw
 5. Unclear or invalid moves waste the turn (no winner)
 
+INTENT UNDERSTANDING:
+- Ignore capitalization, minor typos, and extra words
+- Accept common variations:
+  - 'scissor' or 'scissors' or 'scisors' = scissors
+  - 'roc' or 'rok' = rock
+  - 'papr' or 'papper' = paper
+  - 'bom' or 'boom' = bomb
+- Accept action-based descriptions:
+  - 'wrap', 'cover', 'envelope' = paper
+  - 'throw rock', 'smash', 'crush', 'stone' = rock
+  - 'cut', 'snip', 'slice', 'blades' = scissors
+  - 'explode', 'blast', 'detonate', 'nuke' = bomb
+- Extract the move even if surrounded by other text (e.g., "I choose rock please" = rock)
+- If multiple moves mentioned (e.g., "rock and paper"), mark as UNCLEAR
+- If no valid move can be extracted, mark as UNCLEAR
+
 DECISION PROCESS:
 1. First call get_game_state() to check current round and if bomb was used
 2. Call get_bot_move() to get the bot's move
-3. Analyze the user's input to extract their intended move
+3. Analyze the user's input to extract their intended move (use intent understanding)
 4. Validate: If user plays bomb but bomb_used is True, mark as INVALID
 5. Determine winner using the game rules
 6. Call update_game_state() with the winner and whether bomb was used
