@@ -126,7 +126,7 @@ The test suite includes 15 scenarios divided into 3 sections:
 5. Natural language extraction
 6. Multiple moves (ambiguous)
 
-###Section 2: Reddit-Style Chaos Testing
+### Section 2: Reddit-Style Chaos Testing
 The system was stress-tested using Reddit-style natural language inputs:
 
 7. Reddit - Overexplainer ("ok hear me out… rock 🪨")
